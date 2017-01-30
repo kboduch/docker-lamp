@@ -23,7 +23,7 @@ RUN apt-get -y install \
     php-pear \
     php-gettext \
     php-apcu \
- && a2enmod ssl \
+ && a2enmod ssl rewrite \
  && a2ensite default-ssl \
  && service apache2 restart
 
