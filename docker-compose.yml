@@ -1,0 +1,25 @@
+web:
+  build: ./.docker/apache
+  links: 
+    - database:database-alias
+    - redis:redis-alias
+  ports:
+   - "8888:80"
+  volumes:
+   - ./code:/var/www/html
+   - ./.docker/logs/apache2:/var/logs/apache2
+
+redis:
+  image: redis
+  volumes:
+    - ./.docker/data/redis:/data
+
+database:
+  image: mysql:5.7.17
+  environment:
+    MYSQL_ROOT_PASSWORD: rootpassword
+    MYSQL_DATABASE: dbname
+    MYSQL_USER: dbuser
+    MYSQL_PASSWORD: userpassword
+  volumes:
+    - ./.docker/data/mysql:/var/lib/mysql

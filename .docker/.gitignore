@@ -1,0 +1,3 @@
+data/mysql/*
+data/redis/*
+logs/apache2/*
