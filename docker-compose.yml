@@ -1,10 +1,11 @@
 web:
   build: ./.docker/apache
   links: 
-    - database:database-alias
-    - redis:redis-alias
+    - database
+    - redis
   ports:
-   - "8888:80"
+   - "8080:80"
+   - "8443:443"
   volumes:
    - ./code:/var/www/html
    - ./.docker/logs/apache2:/var/logs/apache2

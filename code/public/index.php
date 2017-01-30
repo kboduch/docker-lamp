@@ -13,3 +13,5 @@ $env = [
 foreach ($env as $key) {
 	echo sprintf("%s: %s<br>", $key, getenv($key));
 }
+
+phpinfo();
